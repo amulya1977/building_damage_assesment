@@ -1,0 +1,28 @@
+# Node modules
+node_modules/
+
+# Python virtual environments
+venv/
+Dashboard/venv/
+*.egg-info/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code files
+.vscode/
+
+# Large binary and artifact files
+*.pth
+*.tif
+*.zip
+*.tar.gz
+*.log
+
+# macOS files
+.DS_Store

@@ -1,0 +1,25 @@
+class BuildingDamageModel(nn.Module):
+    def __init__(self, num_classes=4, dropout=0.4, drop_path_rate=0.2):
+        super().__init__()
+        # ConvNeXt-Base with ImageNet-22k weights, stochastic depth enabled
+        self.backbone = timm.create_model(
+            'convnext_base',
+            pretrained=True,
+            num_classes=0,           # strip head
+            global_pool='avg',
+            drop_path_rate=drop_path_rate
+        )
+        feat_dim = self.backbone.num_features   # 1024 for convnext_base
+
+        # ── Improved classification head ───────────────────────────────────────
+        self.head = nn.Sequential(
+            nn.LayerNorm(feat_dim),
+            nn.Dropout(dropout),
+            nn.Linear(feat_dim, 512),
+            nn.GELU(),
+            nn.LayerNorm(512),
+            nn.Dropout(dropout / 2),
+            nn.Linear(512, num_classes)
+        )
+
+        # Skip projection for residual connection in head (optional but helpful)

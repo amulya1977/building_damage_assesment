@@ -1,0 +1,3 @@
+class BuildingDamageModel(nn.Module):
+        self.backbone = timm.create_model(
+model = BuildingDamageModel(

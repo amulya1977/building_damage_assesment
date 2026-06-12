@@ -1,0 +1,12 @@
+class BuildingDataset(Dataset):
+class BuildingDamageModel(nn.Module):
+#  • Per-class adaptive gamma (higher for rare damaged classes)
+class CBFocalLoss(nn.Module):
+    - alpha: per-class weight from effective number of samples (β formula)
+    - gamma: per-class focal exponent (higher = more focus on hard rare examples)
+        # Per-sample gamma from per-class gamma vector
+# ── Build alpha and per-class gamma ──────────────────────────────────────────
+print(f"   Per-class gamma: {gamma_vec.tolist()}")
+class EMA:
+#  • Reports weighted F1 + macro F1 + per-class F1
+class TemperatureScaler(nn.Module):
